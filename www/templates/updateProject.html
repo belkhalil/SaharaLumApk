@@ -1,0 +1,59 @@
+<ion-view view-title="Nouveau projet">
+
+    <ion-content class="padding">
+        <div class="card">
+            <div class="item item-divider">
+                Creer un nouveau projet
+            </div>
+            <div class="item item-text-wrap">
+                <form class="list padding" ng-submit="getMeteo(ville)">
+                    <label class="item item-input">
+    <input type="text" ng-model="ville" placeholder="nom du projet ">
+  </label>
+                    <label class="item item-input">
+    <input type="date" ng-model="date">
+  </label>
+
+                    <label class="item item-input item-select">
+   <div class = "input-label">
+     Profil
+   </div>
+	
+   <select>
+      <option>Alima</option>
+      <option selected>Option 2</option>
+      <option>Option 3</option>
+   </select>
+</label>
+                    <label class="item item-input item-select">
+   <div class = "input-label">
+     Couleur
+   </div>
+	
+   <select>
+      <option>Option 1</option>
+      <option selected>Option 2</option>
+      <option>Option 3</option>
+   </select>
+</label>
+                    <label class="item item-input item-select">
+   <div class = "input-label">
+     Couisine/Autre
+   </div>
+	
+   <select>
+      <option selected>Autre</option>
+      <option>Couisine</option>
+   </select>
+</label>
+
+
+                </form>
+            </div>
+            <div class="item item-divider">
+                <button class="button button-block button-positive" data-ng-click="validerProjet()">Valider</button>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

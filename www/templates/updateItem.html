@@ -1,0 +1,46 @@
+<ion-view view-title="Nouvelle piece">
+
+    <ion-content class="padding">
+        <div class="card">
+            <div class="item item-divider">
+                Creer une nouvelle piece
+            </div>
+            <div class="item item-text-wrap">
+                <form class="list padding" ng-submit="getMeteo(ville)">
+                    <label class="item item-input item-select">
+   <div class = "input-label"> Fenetre / Porte </div>
+	
+   <select>
+      <option>Fenetre</option>
+      <option selected>Porte</option>
+   </select>
+</label>
+                    <label class="item item-input item-select">
+   <div class = "input-label"> Coulisse / Porte</div>
+	
+   <select>
+      <option>Coulisse</option>
+      <option selected>Porte</option>
+   </select>
+</label>
+                    <label class="item item-input">
+    <div class = "input-label">Largeur (cm)</div>
+    <input type="number" ng-model="largeur" placeholder="largeur ">
+  </label>
+                    <label class="item item-input">
+    <div class = "input-label">Hauteur (cm)</div>
+    <input type="number" ng-model="hauteur" placeholder="hauteur ">
+  </label>
+                    <label class="item item-input">
+    <div class = "input-label">Nombre de pieces</div>
+    <input type="number" ng-model="nombre" placeholder="nombre ">
+  </label>
+                </form>
+            </div>
+            <div class="item item-divider">
+                <button class="button button-block button-positive" data-ng-click="saveItem()">Valider</button>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>
