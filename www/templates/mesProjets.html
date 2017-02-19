@@ -6,16 +6,11 @@
                 Mes projets
             </div>
             <div class="item item-text-wrap">
-                <ul class="list">
+                <ul class="list" ng-repeat="project in projects">
                     <li class="item">
-                        projet 1
+                        {{project.name}}
                     </li>
-                    <li class="item">
-                        projet 2
-                    </li>
-                    <li class="item">
-                        projet 3
-                    </li>
+
                 </ul>
             </div>
             <div class="item item-divider">

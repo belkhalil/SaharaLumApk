@@ -10,30 +10,30 @@
                     <label class="item item-input item-select">
    <div class = "input-label"> Fenetre / Porte </div>
 	
-   <select>
-      <option>Fenetre</option>
-      <option selected>Porte</option>
+   <select ng-model="piece.name">
+      <option value="fenetre">Fenetre</option>
+      <option value="porte">Porte</option>
    </select>
 </label>
                     <label class="item item-input item-select">
-   <div class = "input-label"> Coulisse / Porte</div>
+   <div class = "input-label"> Coulisse / Ouvrant</div>
 	
-   <select>
-      <option>Coulisse</option>
-      <option selected>Porte</option>
+   <select ng-model="piece.typePiece">
+      <option value="coulisse">Coulisse</option>
+      <option value="ouvrant">Ouvrant</option>
    </select>
 </label>
                     <label class="item item-input">
     <div class = "input-label">Largeur (cm)</div>
-    <input type="number" ng-model="largeur" placeholder="largeur ">
+    <input type="number" ng-model="piece.with" placeholder="largeur ">
   </label>
                     <label class="item item-input">
     <div class = "input-label">Hauteur (cm)</div>
-    <input type="number" ng-model="hauteur" placeholder="hauteur ">
+    <input type="number" ng-model="piece.height" placeholder="hauteur ">
   </label>
                     <label class="item item-input">
     <div class = "input-label">Nombre de pieces</div>
-    <input type="number" ng-model="nombre" placeholder="nombre ">
+    <input type="number" ng-model="piece.nombre" placeholder="nombre ">
   </label>
                 </form>
             </div>
