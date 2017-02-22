@@ -29,17 +29,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state("updateProjet", {
         url: "/updateProjet",
         templateUrl: "templates/updateProject.html",
-        controller: "mainController"
+        controller: "updateProjectController"
     });
     $stateProvider.state("mesProjets", {
         url: "/mesProjets",
         templateUrl: "templates/mesProjets.html",
-
     });
     $stateProvider.state("updateItem", {
         url: "/updateItem",
         templateUrl: "templates/updateItem.html",
-        controller: "mainController"
+        controller: "updateItemController"
     });
     $stateProvider.state("contact", {
         url: "/contact",
@@ -69,8 +68,7 @@ app.factory('StorageService', function($localStorage) {
         removeProject: _removeProject
     };
 });
-
-app.controller('mainController', function($scope, $state, StorageService, $localStorage) {
+app.controller('updateProjectController', function($scope, $state, StorageService, $localStorage) {
     $scope.projects = $localStorage.projects;
     $scope.project = {
         name: null,
@@ -82,6 +80,15 @@ app.controller('mainController', function($scope, $state, StorageService, $local
         },
         listPieces: []
     };
+    $scope.validerProjet = function() {
+        if ($scope.project.cousineAutre == 'Autre') {
+            $state.go("updateItem", {});
+            $localStorage.project = $scope.project;
+        }
+    };
+});
+
+app.controller('updateItemController', function($scope, $rootScope, $state, StorageService, $localStorage) {
     $scope.piece = {
         name: null,
         typePiece: null,
@@ -89,29 +96,40 @@ app.controller('mainController', function($scope, $state, StorageService, $local
         height: null,
         nombre: null
     };
-    $scope.validerProjet = function() {
-        if ($scope.project.cousineAutre == 'Autre') {
-            $state.go("updateItem", {});
-            console.log($scope.project);
-            $localStorage.project = $scope.project;
-        }
-    };
 
     $scope.saveItem = function() {
         $scope.listPieces = [];
-        console.log("ha la piece li 3mrat daba " + $scope.piece);
 
+        $scope.listPieces = $localStorage.listPieces;
+        // alert("ha la piece li 3mrat daba " + $scope.piece);
+        console.log($localStorage.project);
         $scope.projectCreer = $localStorage.project;
-        $localStorage.projects = $localStorage.projects || [];
-        console.log('hada le projet li 3mar daba ' + $scope.projectCreer);
+        // $localStorage.projects = $localStorage.projects || [];
         $scope.projectCreer.listPieces.push($scope.piece);
-        $scope.listPieces = $scope.projectCreer.listPieces;
-        alert('le nmbre des pieces de projet' + $scope.listPieces.length);
-        $localStorage.projects.push($scope.projectCreer);
-        console.log($localStorage.projects);
-        $scope.projects = $localStorage.projects;
+        $rootScope.listPieces = $scope.projectCreer.listPieces;
+        $localStorage.listPieces = $rootScope.listPieces;
+        alert($scope.listPieces.length);
+        // alert('le nmbre des pieces de projet' + $scope.listPieces.length);
+
+        //$localStorage.projects.push($scope.projectCreer);
+        //console.log($localStorage.projects);
+        //$scope.projects = $localStorage.projects;
         //StorageService.addProject($scope.project);
         $state.go("projetItems", {});
+
     };
+
+    $scope.ajouterUneAutrePiece = function() {
+        $scope.piece = {
+            name: null,
+            typePiece: null,
+            with: null,
+            height: null,
+            nombre: null
+        };
+        $state.go("updateItem", {});
+    };
+    $scope.listPieces = $localStorage.listPieces;
+    alert($localStorage.listPieces);
 
 });

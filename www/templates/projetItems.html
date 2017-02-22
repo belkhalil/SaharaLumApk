@@ -1,4 +1,4 @@
-<ion-view view-title="Mes projets">
+<ion-view view-title="Mes projets" ng-controller="updateItemController">
 
     <ion-content class="padding">
         <div class="card">
@@ -8,19 +8,16 @@
             <div class="item item-text-wrap">
                 <ul class="list" ng-repeat="piece in listPieces">
                     <li class="item">
-                        {{piece}}
+                        {{piece.nombre}} || {{piece.name}}
                     </li>
-
-
                 </ul>
             </div>
 
             <div class="item item-divider">
                 <div class="row">
-                    <div class="col"> <a style="background-color:dodgerblue  ; color: aliceblue ; width: 100%" class="button " ui-sref="updateItem">Ajouter</a></div>
+                    <div class="col"> <a style="background-color:dodgerblue  ; color: aliceblue ; width: 100%" class="button " data-ng-click="ajouterUneAutrePiece()">Ajouter</a></div>
                     <div class="col calm"><a class="button" style="background-color: cornflowerblue ; color: aliceblue ; width: 100%">Generer Calcules</a></div>
                 </div>
-
             </div>
     </ion-content>
 </ion-view>
